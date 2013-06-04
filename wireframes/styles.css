@@ -1,8 +1,7 @@
 
 body {
   margin: 0;
-  font-family: "Open Sans", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  font-size: 12px;
+  font: 12px Open Sans, Lucida Sans Unicode, Lucida Grande, sans-serif;
   top: 0;
   left: 0;
   right: 0;
@@ -11,8 +10,7 @@ body {
 }
 
 pre {
-  font-family: Menlo, Monaco, Consolas, Courier, monospace;
-  font-size: 12px;
+  font: 12px Menlo, Monaco, Consolas, Courier, monospace;
   background: #fcfcfc;
   border: 1px solid #eee;
   border-radius: 4px;
@@ -23,18 +21,16 @@ pre {
 }
 
 code {
-  font-family: Menlo, Monaco, Consolas, Courier, monospace;
-  font-size: 12px;
+  font: 12px Menlo, Monaco, Consolas, Courier, monospace;
   background: #fcfcfc;
   border: 1px solid #eee;
   border-radius: 4px;
   -webkit-border-radius: 4px; 
   -moz-border-radius: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 0 4px;
 }
 
-#navigation {
+nav {
   background: #efefef;
   top: 0;
   left: 0;
@@ -43,44 +39,39 @@ code {
   font-size: 14px;
 }
 
-#main {
+.main {
   position: absolute;
   left: 0;
   right: 0;
 }
 
-#title {
+.page-title {
   font-size: 18px;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 5px;
+  padding: 10px;
 }
 
-#description {
+.description {
   font-size: 10px;
   font-style: italic;
-  padding-left: 20px;
-  padding-bottom: 10px;
-  padding-right: 10px;
+  padding: 0 10px 10px 20px;
 }
 
-.section .title {
+section .title {
   padding: 10px;
   font-size: 14px;
 }
 
-.section a {
+section a {
   text-decoration: none;
   color: #333;
 }
 
-.section a .item {
+section a .item {
   text-decoration: none;
   color: #333;
 }
 
-.section .item {
+section .item {
   position: relative;
   left: 0;
   right: 0;
@@ -92,18 +83,16 @@ code {
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
-.section .item:HOVER {
+section .item:HOVER {
   opacity: .7;
 }
 
-.section .item .button {
+section .item .button {
   position: absolute;
   right: 10px;
   font-weight: 700;
 }
 
-.section .content {
-  padding-left: 20px;
-  padding-bottom: 10px;
-  padding-right: 10px;
+section .content {
+  padding: 0 10px 10px 20px;
 }
