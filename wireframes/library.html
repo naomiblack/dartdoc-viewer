@@ -1,127 +1,127 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 
 <html>
   <head>
+    <!-- TODO(janicejl): Contents of this wireframe need to 
+        replaced by parsed Yaml data. --> 
     <title>io library</title>
-    
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
  
   <body>   
-    <!-- Navigational Bar -->   
     <nav>
-      dart:io
+      <span>dart:io</span>
     </nav>
     
-    <!-- Main Contents --> 
-    <div class="main">
-      <!-- Title of the class -->
-      <div class="page-title">dart:io library</div>
-      <!-- Description of he class -->
-      <div class="description">
-        The IO library is used for Dart server applications, 
-        which run on a stand-alone Dart VM from the command line. 
-        This library does not work in browser based applications.
-        <br />
-        <br />
-        This library allows you to work with files, directories, 
-        sockets, processes, HTTP servers and clients, and more.
-      </div>
-      
-      <!-- Subsection for library properties. -->
-      <section>
-        <div class="title">Properties</div>
-        <div class="item">const APPEND</div>
-        <div class="item">const ASCII</div>
-        <div class="item">dynamic set exitCode(int status)</div>
-      </section>
-      
-      <!-- Subsection for library functions. -->
-      <section>
-        <div class="title">Functions</div>
-        <div class="item">
-          <span>void sleep(Duration duration)</span>
-          <span class="button">></span>
-        </div>
-        <div class="item">
-          <span>void exit(int status)</span>
-          <span class="button">></span>
-        </div>
-      </section>
-      
-      <!-- Subsection for library abstract classes. -->
-      <section>
-        <div class="title">Abstract Classes</div>
-        <div class="item">
-          <span>ContentType</span>
-          <span class="button">></span>
-        </div>
-        <div class="item">
-          <span>Cookie</span>
-          <span class="button">></span>
-        </div>
-        <div class="item">
-          <span>DettachedSocket</span>
-          <span class="button">></span>
-        </div>
-        <div class="item">
-          <span>Directory</span>
-          <span class="button">></span>
-        </div>
-        <a href="class.html"> 
-          <div class="item">
-            <span>File</span>
+    <main>
+      <article>
+        <h1>dart:io library</h1>
+        <!-- Description of the class -->
+        <section>
+          The IO library is used for Dart server applications, 
+          which run on a stand-alone Dart VM from the command line. 
+          This library does not work in browser based applications.
+          <br>
+          <br>
+          This library allows you to work with files, directories, 
+          sockets, processes, HTTP servers and clients, and more.
+        </section>
+        
+        <!-- Subsection for library properties. -->
+        <details>
+          <summary>Properties</summary>
+          <article>const APPEND</article>
+          <article>const ASCII</article>
+          <article>dynamic set exitCode(int status)</article>
+        </details>
+        
+        <!-- Subsection for library functions. -->
+        <details>
+          <summary>Functions</summary>
+          <article>
+            <span>void sleep(Duration duration)</span>
             <span class="button">></span>
-          </div>
-        </a>
-      </section>
-      
-      <!-- Subsection for library classes. -->
-      <section>
-        <div class="title">Classes</div>
-        <div class="item">
-          <span>Encoding</span>
-          <span class="button">></span>
-        </div>
-        <div class="item">
-          <span>FileMode</span>
-          <span class="button">></span>
-        </div>
-        <div class="item">
-          <span>FileStat</span>
-          <span class="button">></span>
-        </div>
-        <div class="item">
-          <span>FileSystemEntityType</span>
-          <span class="button">></span>
-        </div>
-      </section>
-      
-      <!-- Subsection for library exceptions. -->
-      <section>
-        <div class="title">Exceptions</div>
-        <div class="item">
-          <span>DirectoryIOException</span>
-          <span class="button">></span>
-        </div>
-        <div class="item">
-          <span>FileIOException</span>
-          <span class="button">></span>
-        </div>
-        <div class="item">
-          <span>HttpException</span>
-          <span class="button">></span>
-        </div>
-        <div class="item">
-          <span>HttpParserException</span>
-          <span class="button">></span>
-        </div>
-        <div class="item">
-          <span>LinkIOException</span>
-          <span class="button">></span>
-        </div>
-      </section>
-      
-    </div>
+          </article>
+          <article>
+            <span>void exit(int status)</span>
+            <span class="button">></span>
+          </article>
+        </details>
+        
+        <!-- Subsection for library abstract classes. -->
+        <details>
+          <summary>Abstract Classes</summary>
+          <article>
+            <span>ContentType</span>
+            <span class="button">></span>
+          </article>
+          <article>
+            <span>Cookie</span>
+            <span class="button">></span>
+          </article>
+          <article>
+            <span>DettachedSocket</span>
+            <span class="button">></span>
+          </article>
+          <article>
+            <span>Directory</span>
+            <span class="button">></span>
+          </article>
+          <a href="class.html"> 
+            <article>
+              <span>File</span>
+              <span class="button">></span>
+            </article>
+          </a>
+        </details>
+        
+        <!-- Subsection for library classes. -->
+        <details>
+          <summary>Classes</summary>
+          <article>
+            <span>Encoding</span>
+            <span class="button">></span>
+          </article>
+          <article>
+            <span>FileMode</span>
+            <span class="button">></span>
+          </article>
+          <article>
+            <span>FileStat</span>
+            <span class="button">></span>
+          </article>
+          <article>
+            <span>FileSystemEntityType</span>
+            <span class="button">></span>
+          </article>
+        </details>
+        
+        <!-- Subsection for library exceptions. -->
+        <details>
+          <summary>Exceptions</summary>
+          <article>
+            <span>DirectoryIOException</span>
+            <span class="button">></span>
+          </article>
+          <article>
+            <span>FileIOException</span>
+            <span class="button">></span>
+          </article>
+          <article>
+            <span>HttpException</span>
+            <span class="button">></span>
+          </article>
+          <article>
+            <span>HttpParserException</span>
+            <span class="button">></span>
+          </article>
+          <article>
+            <span>LinkIOException</span>
+            <span class="button">></span>
+          </article>
+        </details>
+      </article>  
+    </main>
   </body>
 </html>

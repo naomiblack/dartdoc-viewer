@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font: 12px Open Sans, Lucida Sans Unicode, Lucida Grande, sans-serif;
@@ -30,6 +29,11 @@ code {
   padding: 0 4px;
 }
 
+pre > code {
+  border: 0;
+  padding: 0;
+}
+
 nav {
   background: #efefef;
   top: 0;
@@ -39,39 +43,42 @@ nav {
   font-size: 14px;
 }
 
-.main {
+nav span:before {
+  content: ' / ';
+}
+
+main {
   position: absolute;
   left: 0;
   right: 0;
 }
 
-.page-title {
-  font-size: 18px;
+h1 {
   padding: 10px;
 }
 
-.description {
+main section {
   font-size: 10px;
   font-style: italic;
   padding: 0 10px 10px 20px;
 }
 
-section .title {
+details summary {
   padding: 10px;
   font-size: 14px;
 }
 
-section a {
+details a {
   text-decoration: none;
   color: #333;
 }
 
-section a .item {
+details a article {
   text-decoration: none;
   color: #333;
 }
 
-section .item {
+details article {
   position: relative;
   left: 0;
   right: 0;
@@ -83,16 +90,16 @@ section .item {
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
-section .item:HOVER {
+details article:HOVER {
   opacity: .7;
 }
 
-section .item .button {
+details article .button {
   position: absolute;
   right: 10px;
   font-weight: 700;
 }
 
-section .content {
+details .content {
   padding: 0 10px 10px 20px;
 }

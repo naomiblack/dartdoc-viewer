@@ -1,47 +1,51 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 
 <html>
   <head>
+    <!-- TODO(janicejl): Contents of this wireframe need to 
+      replaced by parsed Yaml data. -->
     <title>member</title>
-    
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
  
   <body>   
     <nav>
-      <a href="library.html">dart:io</a> / <a href="class.html">File</a> / create()
+      <span><a href="library.html">dart:io</a></span>
+      <span><a href="class.html">File</a></span>
+      <span>create()</span>
     </nav>
   
-    <div class="main">
-      <div class="page-title">abstract Future&lt;File&gt; create()</div>
+    <main>
+      <h1>abstract Future&lt;File&gt; create()</h1>
       
       <!-- Description -->
-      <section>
-        <div class="title">Description</div>
+      <details>
+        <summary>Description</summary>
         <div class="content">
           Create the file. 
-          <br />
-          <br />
+          <br>
+          <br>
           Existing files are left untouched by create. 
           Calling create on an existing file might fail 
           if there are restrictive permissions on the file.
         </div>
-      </section>
+      </details>
       
-      <section>
-        <div class="title">Return Type</div>
+      <details>
+        <summary>Return Type</summary>
         <div class="content">
           Returns a <code>Future&lt;File&gt;</code> that completes 
           with the file when it has been created.
         </div>
-      </section>
+      </details>
       
-      <section>
-        <div class="title">Examples</div>
+      <details>
+        <summary>Examples</summary>
         <div class="content">
           Example to create and use a file: 
           
-          <pre>
+          <pre><code>
 new File("example.txt").create().then((File newFile) {
   OutputStream stream = newFile.openOutputStream();
   
@@ -49,20 +53,20 @@ new File("example.txt").create().then((File newFile) {
   
   stream.close();
 });
-          </pre>
+          </code></pre>
           
         </div>
-      </section>
+      </details>
       
-      <section>
-        <div class="title">Exceptions</div>
+      <details>
+        <summary>Exceptions</summary>
         <div class="content">
           Exception information for create method will go here. 
           What exceptions are thrown. 
         </div>
-      </section>
+      </details>
       
-    </div>
+    </main>
   
   </body>
 </html>
