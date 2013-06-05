@@ -1,77 +1,66 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<html>
-  <head>
-    <!-- TODO(janicejl): Contents of this wireframe need to 
-        replaced by parsed Yaml data. --> 
-    <title>File class</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+
+<title>File class</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<nav>
+  <ul>
+    <li><a href="library.html">dart:io</a>
+    <li>File
+  </ul>
+</nav>
+<!-- TODO(janicejl): Contents of this wireframe need to 
+    replaced by parsed Yaml data. -->
+<main>
+  <article>
+    <h1>File abstract class</h1>
+    <!-- Description of the class -->
+    <section>
+      File objects are references to files.
+    </section>
     
-  </head>
- 
-  <body>
-    <nav>
-      <span><a href="library.html">dart:io</a></span>
-      <span>File</span>
-    </nav>
-    
-    <main>
+    <!-- Subsection for class constructors. -->
+    <details>
+      <summary>Constructors</summary>
       <article>
-        <h1>File abstract class</h1>
-        <!-- Description of the class -->
-        <section>
-          File objects are references to files.
-        </section>
-        
-        <!-- Subsection for class constructors. -->
-        <details>
-          <summary>Constructors</summary>
-          <article>
-            File()
-          </article>
-          <article>
-            File(String path)
-          </article>
-        </details>
-        
-        <!-- Subsection for class properties. -->
-        <details>
-          <summary>Properties</summary>
-          <article>
-            final String path
-          </article>
-        </details>
-        
-        <!-- Subsection for class methods. -->
-        <details>
-          <summary>Methods</summary>
-          <article>
-            abstract Future&lt;File&gt; create()
-            <span class="button">></span>
-          </article>
-          <article>
-            abstract void createSync()
-            <span class="button">></span>
-          </article>
-          <article>
-            abstract Future&lt;File&gt; delete()
-            <span class="button">></span>
-          </article>
-          <article>
-            abstract void deleteSync()
-            <span class="button">></span>
-          </article>
-          <article>
-            abstract Future&lt;File&gt; directory()
-            <span class="button">></span>
-          </article>
-          <article>
-            abstract void directorySync()
-            <span class="button">></span>
-          </article>
-        </details>
+        <h1>File()</h1>
       </article>
-    </main>
-  </body>
-</html>
+      <article>
+        <h1>File(String path)</h1>
+      </article>
+    </details>
+    
+    <!-- Subsection for class properties. -->
+    <details>
+      <summary>Properties</summary>
+      <article>
+        <h1>final String path</h1>
+      </article>
+    </details>
+    
+    <!-- Subsection for class methods. -->
+    <details>
+      <summary>Methods</summary>
+      <article>
+        <h1>abstract Future&lt;File&gt; create()</h1>
+      </article>
+      <article>
+        <h1>abstract void createSync()</h1>
+      </article>
+      <article>
+        <h1>abstract Future&lt;File&gt; delete()</h1>
+      </article>
+      <article>
+        <h1>abstract void deleteSync()</h1>
+      </article>
+      <article>
+        <h1>abstract Future&lt;File&gt; directory()</h1>
+      </article>
+      <article>
+        <h1>abstract void directorySync()</h1>
+      </article>
+    </details>
+  </article>
+</main>

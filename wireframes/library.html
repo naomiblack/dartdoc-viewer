@@ -1,127 +1,114 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<html>
-  <head>
-    <!-- TODO(janicejl): Contents of this wireframe need to 
-        replaced by parsed Yaml data. --> 
-    <title>io library</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-  </head>
- 
-  <body>   
-    <nav>
-      <span>dart:io</span>
-    </nav>
+
+<title>io library</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<nav>
+  <ul>
+    <li>dart:io
+  </ul>
+</nav>
+<!-- TODO(janicejl): Contents of this wireframe need to 
+    replaced by parsed Yaml data. -->   
+<main>
+  <article>
+    <h1>dart:io library</h1>
+    <!-- Description of the class -->
+    <section>
+      The IO library is used for Dart server applications, 
+      which run on a stand-alone Dart VM from the command line. 
+      This library does not work in browser based applications.
+      <br>
+      <br>
+      This library allows you to work with files, directories, 
+      sockets, processes, HTTP servers and clients, and more.
+    </section>
     
-    <main>
+    <!-- Subsection for library properties. -->
+    <details>
+      <summary>Properties</summary>
       <article>
-        <h1>dart:io library</h1>
-        <!-- Description of the class -->
-        <section>
-          The IO library is used for Dart server applications, 
-          which run on a stand-alone Dart VM from the command line. 
-          This library does not work in browser based applications.
-          <br>
-          <br>
-          This library allows you to work with files, directories, 
-          sockets, processes, HTTP servers and clients, and more.
-        </section>
-        
-        <!-- Subsection for library properties. -->
-        <details>
-          <summary>Properties</summary>
-          <article>const APPEND</article>
-          <article>const ASCII</article>
-          <article>dynamic set exitCode(int status)</article>
-        </details>
-        
-        <!-- Subsection for library functions. -->
-        <details>
-          <summary>Functions</summary>
-          <article>
-            <span>void sleep(Duration duration)</span>
-            <span class="button">></span>
-          </article>
-          <article>
-            <span>void exit(int status)</span>
-            <span class="button">></span>
-          </article>
-        </details>
-        
-        <!-- Subsection for library abstract classes. -->
-        <details>
-          <summary>Abstract Classes</summary>
-          <article>
-            <span>ContentType</span>
-            <span class="button">></span>
-          </article>
-          <article>
-            <span>Cookie</span>
-            <span class="button">></span>
-          </article>
-          <article>
-            <span>DettachedSocket</span>
-            <span class="button">></span>
-          </article>
-          <article>
-            <span>Directory</span>
-            <span class="button">></span>
-          </article>
-          <a href="class.html"> 
-            <article>
-              <span>File</span>
-              <span class="button">></span>
-            </article>
-          </a>
-        </details>
-        
-        <!-- Subsection for library classes. -->
-        <details>
-          <summary>Classes</summary>
-          <article>
-            <span>Encoding</span>
-            <span class="button">></span>
-          </article>
-          <article>
-            <span>FileMode</span>
-            <span class="button">></span>
-          </article>
-          <article>
-            <span>FileStat</span>
-            <span class="button">></span>
-          </article>
-          <article>
-            <span>FileSystemEntityType</span>
-            <span class="button">></span>
-          </article>
-        </details>
-        
-        <!-- Subsection for library exceptions. -->
-        <details>
-          <summary>Exceptions</summary>
-          <article>
-            <span>DirectoryIOException</span>
-            <span class="button">></span>
-          </article>
-          <article>
-            <span>FileIOException</span>
-            <span class="button">></span>
-          </article>
-          <article>
-            <span>HttpException</span>
-            <span class="button">></span>
-          </article>
-          <article>
-            <span>HttpParserException</span>
-            <span class="button">></span>
-          </article>
-          <article>
-            <span>LinkIOException</span>
-            <span class="button">></span>
-          </article>
-        </details>
-      </article>  
-    </main>
-  </body>
-</html>
+        <h1>const APPEND</h1>
+      </article>
+      <article>
+        <h1>const ASCII</h1>
+      </article>
+      <article>
+        <h1>dynamic set exitCode(int status)</h1>
+      </article>
+    </details>
+    
+    <!-- Subsection for library functions. -->
+    <details>
+      <summary>Functions</summary>
+      <article>
+        <h1>void sleep(Duration duration)</h1>
+      </article>
+      <article>
+        <h1>void exit(int status)</h1>
+      </article>
+    </details>
+    
+    <!-- Subsection for library abstract classes. -->
+    <details>
+      <summary>Abstract Classes</summary>
+      <article>
+        <h1>ContentType</h1>
+      </article>
+      <article>
+        <h1>Cookie</h1>
+      </article>
+      <article>
+        <h1>DettachedSocket</h1>
+      </article>
+      <article>
+        <h1>Directory</h1>
+      </article>
+      <a href="class.html"> 
+        <article>
+          <h1>File</h1>
+
+        </article>
+      </a>
+    </details>
+    
+    <!-- Subsection for library classes. -->
+    <details>
+      <summary>Classes</summary>
+      <article>
+        <h1>Encoding</h1>
+      </article>
+      <article>
+        <h1>FileMode</h1>
+      </article>
+      <article>
+        <h1>FileStat</h1>
+      </article>
+      <article>
+        <h1>FileSystemEntityType</h1>
+      </article>
+    </details>
+    
+    <!-- Subsection for library exceptions. -->
+    <details>
+      <summary>Exceptions</summary>
+      <article>
+        <h1>DirectoryIOException</h1>
+      </article>
+      <article>
+        <h1>FileIOException</h1>
+      </article>
+      <article>
+        <h1>HttpException</h1>
+      </article>
+      <article>
+        <h1>HttpParserException</h1>
+      </article>
+      <article>
+        <h1>LinkIOException</h1>
+      </article>
+    </details>
+  </article>  
+</main>

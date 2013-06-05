@@ -43,7 +43,20 @@ nav {
   font-size: 14px;
 }
 
-nav span:before {
+nav ul {
+  list-style: none;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  float: left;
+  display: block;
+  padding: 2px;
+}
+
+nav li:before {
   content: ' / ';
 }
 
@@ -94,10 +107,10 @@ details article:HOVER {
   opacity: .7;
 }
 
-details article .button {
-  position: absolute;
-  right: 10px;
-  font-weight: 700;
+details article h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
 }
 
 details .content {

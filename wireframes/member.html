@@ -1,72 +1,67 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<html>
-  <head>
-    <!-- TODO(janicejl): Contents of this wireframe need to 
-      replaced by parsed Yaml data. -->
-    <title>member</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-  </head>
- 
-  <body>   
-    <nav>
-      <span><a href="library.html">dart:io</a></span>
-      <span><a href="class.html">File</a></span>
-      <span>create()</span>
-    </nav>
+
+<title>member</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<nav>
+  <ul>
+    <li><a href="library.html">dart:io</a>
+    <li><a href="class.html">File</a>
+    <li>create()
+  </ul>
+</nav>
+<!-- TODO(janicejl): Contents of this wireframe need to 
+  replaced by parsed Yaml data. -->
+<main>
+  <h1>abstract Future&lt;File&gt; create()</h1>
   
-    <main>
-      <h1>abstract Future&lt;File&gt; create()</h1>
+  <!-- Description -->
+  <details>
+    <summary>Description</summary>
+    <div class="content">
+      Create the file. 
+      <br>
+      <br>
+      Existing files are left untouched by create. 
+      Calling create on an existing file might fail 
+      if there are restrictive permissions on the file.
+    </div>
+  </details>
+  
+  <details>
+    <summary>Return Type</summary>
+    <div class="content">
+      Returns a <code>Future&lt;File&gt;</code> that completes 
+      with the file when it has been created.
+    </div>
+  </details>
+  
+  <details>
+    <summary>Examples</summary>
+    <div class="content">
+      Example to create and use a file: 
       
-      <!-- Description -->
-      <details>
-        <summary>Description</summary>
-        <div class="content">
-          Create the file. 
-          <br>
-          <br>
-          Existing files are left untouched by create. 
-          Calling create on an existing file might fail 
-          if there are restrictive permissions on the file.
-        </div>
-      </details>
-      
-      <details>
-        <summary>Return Type</summary>
-        <div class="content">
-          Returns a <code>Future&lt;File&gt;</code> that completes 
-          with the file when it has been created.
-        </div>
-      </details>
-      
-      <details>
-        <summary>Examples</summary>
-        <div class="content">
-          Example to create and use a file: 
-          
-          <pre><code>
+      <pre><code>
 new File("example.txt").create().then((File newFile) {
-  OutputStream stream = newFile.openOutputStream();
-  
-  stream.writeString("text");
-  
-  stream.close();
+OutputStream stream = newFile.openOutputStream();
+
+stream.writeString("text");
+
+stream.close();
 });
-          </code></pre>
-          
-        </div>
-      </details>
+      </code></pre>
       
-      <details>
-        <summary>Exceptions</summary>
-        <div class="content">
-          Exception information for create method will go here. 
-          What exceptions are thrown. 
-        </div>
-      </details>
-      
-    </main>
+    </div>
+  </details>
   
-  </body>
-</html>
+  <details>
+    <summary>Exceptions</summary>
+    <div class="content">
+      Exception information for create method will go here. 
+      What exceptions are thrown. 
+    </div>
+  </details>
+  
+</main>
