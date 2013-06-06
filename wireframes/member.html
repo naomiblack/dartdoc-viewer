@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-
 <title>member</title>
 <link rel="stylesheet" type="text/css" href="styles.css">
 
 <nav>
-  <ul>
+  <ul class="breadcrumb">
     <li><a href="library.html">dart:io</a>
     <li><a href="class.html">File</a>
     <li>create()
@@ -17,7 +16,6 @@
 <main>
   <h1>abstract Future&lt;File&gt; create()</h1>
   
-  <!-- Description -->
   <details>
     <summary>Description</summary>
     <div class="content">
@@ -38,18 +36,18 @@
     </div>
   </details>
   
-  <details>
+  <details open>
     <summary>Examples</summary>
     <div class="content">
       Example to create and use a file: 
       
       <pre><code>
 new File("example.txt").create().then((File newFile) {
-OutputStream stream = newFile.openOutputStream();
+  OutputStream stream = newFile.openOutputStream();
 
-stream.writeString("text");
+  stream.writeString("text");
 
-stream.close();
+  stream.close();
 });
       </code></pre>
       
