@@ -1,7 +1,6 @@
 name: dartdoc_viewer
 description: Dart API Reference
 dependencies:
-  browser: any
   polymer: any
   polymer_expressions: any
   yaml: any
@@ -11,4 +10,9 @@ transformers:
 dev_dependencies:
   unittest: any
   barback: any
-
+dependency_overrides:
+  polymer: { path: /mnt/code/dart/dart/pkg/polymer }
+  observe: { path: /mnt/code/dart/dart/pkg/observe }
+  shadow_dom: { path: /mnt/code/dart/dart/pkg/shadow_dom }
+  html5lib: { path: /mnt/code/dart/dart/pkg/third_party/html5lib }
+  barback: { path: /mnt/code/dart/dart/pkg/barback }

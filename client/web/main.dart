@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-library index;
+library web.main;
 
 import 'package:dartdoc_viewer/item.dart';
 import 'package:polymer/polymer.dart';
@@ -14,47 +14,54 @@ import 'package:dartdoc_viewer/read_yaml.dart';
 // TODO(alanknight): Clean up the dart-style CSS file's formatting once
 // it's stable.
 @CustomTag("dartdoc-main")
-class IndexElement extends DartdocElement {
+class MainElement extends DartdocElement {
+  @observable String pageContentClass;
+  @observable bool shouldShowLibraryPanel;
+  @observable bool shouldShowLibraryMinimap;
+  @observable bool shouldShowClassMinimap;
+
+  // TODO(jmesserly): somewhat unfortunate, but for now we don't have
+  // polymer_expressions so we need a workaround.
+  @observable String showOrHideLibraries;
+  @observable String showOrHideMinimap;
+  @observable String showOrHideInherited;
+  @observable String showOrHidePackages;
 
   /// Records the timestamp of the event that opened the options menu.
   var _openedAt;
 
-  IndexElement.created() : super.created();
+  MainElement.created() : super.created();
 
   enteredView() {
     super.enteredView();
-    new PathObserver(this, "viewer.currentPage").bindSync(
-      (_) {
-        notifyPropertyChange(#shouldShowLibraryMinimap,
-            null, shouldShowLibraryMinimap);
-        notifyPropertyChange(#shouldShowClassMinimap, null,
-            shouldShowClassMinimap);
-        notifyPropertyChange(#crumbs, null, 'some value');
-        notifyPropertyChange(#pageContentClass, null, pageContentClass);
-      });
-    new PathObserver(this, "viewer.isMinimap").changes.listen((changes) {
-      notifyPropertyChange(#shouldShowLibraryMinimap,
-          shouldShowLibraryMinimapFor(changes.first.oldValue),
-          shouldShowLibraryMinimap);
-      notifyPropertyChange(#shouldShowClassMinimap,
-          shouldShowClassMinimapFor(changes.first.oldValue),
-          shouldShowClassMinimap);
-      notifyPropertyChange(#pageContentClass,
-          null,
-          pageContentClass);
-    });
-    new PathObserver(this, "viewer.isPanel").bindSync(
-      (_) {
-        notifyPropertyChange(#pageContentClass, null, pageContentClass);
-      });
-    onClick.listen(hideOptionsMenuWhenClickedOutside);
+
+    registerObserver('viewer', viewer.changes.listen(_onViewerChange));
+    registerObserver('onclick',
+        onClick.listen(hideOptionsMenuWhenClickedOutside));
   }
 
-  @observable get pageContentClass {
-    if (!viewer.isDesktop) return '';
-    var left = viewer.isPanel ? 'margin-left ' : '';
-    var right = viewer.isMinimap ? 'margin-right' : '';
-    return left + right;
+  void _onViewerChange(changes) {
+    if (!viewer.isDesktop) {
+      pageContentClass = '';
+    } else {
+      var left = viewer.isPanel ? 'margin-left ' : '';
+      var right = viewer.isMinimap ? 'margin-right' : '';
+      pageContentClass = '$left$right';
+    }
+
+    shouldShowLibraryPanel =
+        viewer.currentPage != null && viewer.isPanel;
+
+    shouldShowClassMinimap =
+        viewer.currentPage is Class && viewer.isMinimap;
+
+    shouldShowLibraryMinimap =
+        viewer.currentPage is Library && viewer.isMinimap;
+
+    showOrHideLibraries = viewer.isPanel ? 'Hide' : 'Show';
+    showOrHideMinimap = viewer.isMinimap ? 'Hide' : 'Show';
+    showOrHideInherited = viewer.isInherited ? 'Hide' : 'Show';
+    showOrHidePackages = viewer.showPkgLibraries ? 'Hide' : 'Show';
   }
 
   query(String selectors) => shadowRoot.querySelector(selectors);
@@ -65,52 +72,10 @@ class IndexElement extends DartdocElement {
     query('#nav-collapse-content').classes.add('collapse');
   }
 
-  @observable get item => viewer.currentPage.item;
-  @observable get pageNameSeparator => decoratedName == '' ? '' : ' - ';
-  @observable get decoratedName =>
-      viewer.currentPage == null ? '' : viewer.currentPage.decoratedName;
-  togglePanel(event, detail, target) => viewer.togglePanel();
-  toggleInherited(event, detail, target) => viewer.toggleInherited();
-  toggleMinimap(event, detail, target) => viewer.toggleMinimap();
-  togglePkg(event, detail, target) => viewer.togglePkg();
-
-  @observable get shouldShowLibraryMinimap =>
-      shouldShowLibraryMinimapFor(viewer.isMinimap);
-  shouldShowLibraryMinimapFor(isMinimap) =>
-      viewer.currentPage is Library && isMinimap;
-
-  @observable get shouldShowClassMinimap =>
-      shouldShowClassMinimapFor(viewer.isMinimap);
-  @observable shouldShowClassMinimapFor(isMinimap) =>
-      viewer.currentPage is Class && isMinimap;
-  @observable get homePage => viewer.homePage;
-  set homePage(x) {}
-  @observable get viewer => super.viewer;
-
-  get breadcrumbs => viewer.breadcrumbs;
-
-  /// Add the breadcrumbs programmatically.
-  @observable void crumbs() {
-    var root = shadowRoot.querySelector("#navbar");
-    if (root == null) return;
-    root.children.clear();
-    if (breadcrumbs.length < 2) return;
-    var last = breadcrumbs.toList().removeLast();
-    breadcrumbs.skip(1).takeWhile((x) => x != last).forEach(
-        (x) => root.append(normalCrumb(x)));
-    root.append(finalCrumb(last));
-  }
-
-  normalCrumb(item) =>
-      new Element.html('<li><a class="btn-link" '
-        'href="#${item.linkHref}">'
-        '${item.decoratedName}</a></li>',
-        validator: validator);
-
-  finalCrumb(item) =>
-    new Element.html('<li class="active"><a class="btn-link">'
-      '${item.decoratedName}</a></li>',
-      validator: validator);
+  togglePanel() => viewer.togglePanel();
+  toggleInherited() => viewer.toggleInherited();
+  toggleMinimap() => viewer.toggleMinimap();
+  togglePkg() => viewer.togglePkg();
 
   void toggleOptionsMenu(MouseEvent event, detail, target) {
     var list = shadowRoot.querySelector(".dropdown-menu").parent;
@@ -137,19 +102,17 @@ class IndexElement extends DartdocElement {
 
   var _buildIdentifier;
   @observable get buildIdentifier {
-    if (_buildIdentifier == null) {
-      _buildIdentifier = ''; // Don't try twice.
-      retrieveFileContents('docs/VERSION').then((version) {
-        _buildIdentifier = "r $version";
-        notifyPropertyChange(#buildIdentifier, null, _buildIdentifier);
-      }).catchError((_) => null);
-      return '';
-    } else {
-      return _buildIdentifier;
-    }
+    if (_buildIdentifier != null) return _buildIdentifier;
+
+    _buildIdentifier = ''; // Don't try twice.
+    retrieveFileContents('docs/VERSION').then((version) {
+      _buildIdentifier = notifyPropertyChange(#buildIdentifier,
+          _buildIdentifier, "r $version");
+    }).catchError((_) => null);
+    return '';
   }
 
-  @observable navHideShow(event, detail, target) {
+  void navHideShow() {
     var nav = shadowRoot.querySelector("#nav-collapse-content");
     if (nav.classes.contains("in")) {
       nav.classes.remove("in");

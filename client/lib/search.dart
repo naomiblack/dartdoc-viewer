@@ -14,12 +14,35 @@
  */
 library search;
 
-import 'dart:async';
 import 'package:polymer/polymer.dart';
 import 'package:dartdoc_viewer/location.dart';
 
-/** Search Index */
-@reflectable Map<String, String> index = {};
+class SearchIndex {
+  Map<String, String> _map = {};
+
+  Map<String, String> get map => _map;
+  set map(Map<String, String> value) {
+    if (_onLoad == null) {
+      throw new StateError('cannot initialize SearchIndex twice.');
+    }
+    _map = value;
+    for (var load in _onLoad) load();
+    _onLoad = null;
+  }
+
+  List<Function> _onLoad = [];
+
+  SearchIndex._();
+
+  /** Called when the index is loaded. Not called if already loaded. */
+  void onLoad(void callback()) {
+    if (_onLoad == null) return; // already loaded
+    _onLoad.add(callback);
+  }
+}
+
+/** Search Index. */
+final SearchIndex index = new SearchIndex._();
 
 @reflectable class SearchResult implements Comparable {
 
@@ -60,19 +83,6 @@ import 'package:dartdoc_viewer/location.dart';
   toString() => "SearchResult($element, $type, $score)";
 }
 
-/// The value of each type of member.
-@reflectable Map<String, int> value = {
-  'library' : 1,
-  'class' : 2,
-  'typedef' : 3,
-  'method' : 4,
-  'getter' : 4,
-  'setter' : 4,
-  'operator' : 4,
-  'property' : 4,
-  'constructor' : 4
-};
-
 bool _nullFilter(_) => true;
 
 /**
@@ -82,7 +92,6 @@ bool _nullFilter(_) => true;
  * A score is given to each potential search result based off how likely it is
  * the appropriate qualified name to return for the search query.
  */
-@reflectable
 List<SearchResult> lookupSearchResults(String query, int maxResults,
     [Function filter = _nullFilter]) {
   if (query == '') return [];
@@ -108,7 +117,7 @@ List<SearchResult> lookupSearchResults(String query, int maxResults,
     }
     int score = 0;
     var lowerCaseResult = r.toLowerCase();
-    var type = index[r];
+    var type = index.map[r];
 
     var splitDotQueries = [];
     // If the search was for a named constructor (Map.fromIterable), give it a
@@ -132,6 +141,19 @@ List<SearchResult> lookupSearchResults(String query, int maxResults,
     if (!filter(location)) {
       score -= 500;
     }
+
+    // The search result value of each type of member.
+    const Map<String, int> value = const {
+      'library' : 1,
+      'class' : 2,
+      'typedef' : 3,
+      'method' : 4,
+      'getter' : 4,
+      'setter' : 4,
+      'operator' : 4,
+      'property' : 4,
+      'constructor' : 4
+    };
 
     queryList.forEach((q) {
       // If it is a direct match to the last segment of the qualified name,
@@ -185,7 +207,7 @@ List<SearchResult> lookupSearchResults(String query, int maxResults,
   }
 }
 
-@reflectable void updatePositions(List<SearchResult> list) {
+void updatePositions(List<SearchResult> list) {
   for(int i = 0; i < list.length; i++) {
     list[i].position = i;
   }

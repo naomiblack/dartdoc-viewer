@@ -22,7 +22,7 @@ a {
 }
 
 a:hover {
-	
+
 }
 
 h1 {
@@ -64,7 +64,7 @@ h5 {
 h6 {
 	font: 400 12px/17px 'Montserrat', sans-serif;
 	font-size: 15px;
-	color: #0084c5;	
+	color: #0084c5;
 	margin-bottom: 35px;
 }
 
@@ -100,7 +100,7 @@ i[class*="icon-"] {
 
 i[class*="icon-social-"] {
 	width: 23px;
-	height: 23px; 
+	height: 23px;
 }
 
 i[class*="icon-social-"]:hover {
@@ -147,7 +147,7 @@ i.icon-timer {
 
 i[class*="icon-app-"] {
 	width: 35px;
-	height: 35px; 
+	height: 35px;
 }
 
 i.icon-triangle {
@@ -214,7 +214,7 @@ i.icon-close-x {
 }
 
 .navbar a:hover {
-     
+
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -249,7 +249,7 @@ i.icon-close-x {
 		text-align: left;
 	}
 }
-	
+
 
 .nav.navbar-right > li > a {
 	padding-left: 2px;
@@ -274,7 +274,7 @@ i.icon-close-x {
 	background-color: #333;
 }
 
-.navbar-inverse .navbar-toggle:hover .icon-bar, 
+.navbar-inverse .navbar-toggle:hover .icon-bar,
 .navbar-inverse .navbar-toggle:focus .icon-bar {
 	background-color: #fff;
 }
@@ -315,29 +315,33 @@ i.icon-close-x {
 
 @media (max-width: 768px) {
 	.navbar-search {
-	    display: none;
+    display: none;
 	}
 }
 
 .navbar-search .search-query {
-    margin-bottom: 0;
-    padding: 4px 6px;
-    font-size: 13px;
-    font-weight: normal;
-    line-height: 1;
-    margin-top: 20px;
-    margin-right:10px;
-    height:30px;
+  margin-bottom: 0;
+  padding: 4px 6px;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1;
+  margin-top: 20px;
+  margin-right:10px;
+  height:30px;
 }
 
-.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
-     color:#1485c3;
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-nav>.open>a:focus {
+  color:#1485c3;
 }
 
-.navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
-color: #555555;
-background-color: #d5d5d5;
-height: 65px;
+.navbar-nav > .active > a,
+.navbar-nav > .active > a:hover,
+.navbar-nav > .active > a:focus {
+  color: #555555;
+  background-color: #d5d5d5;
+  height: 65px;
 }
 
 
@@ -605,8 +609,8 @@ height: 65px;
 .dart-container .sec-shadow {
 	padding-top: 40px;
 	padding-bottom: 100px;
-	background: 
-	   url(../img/section-shadow-top.png) center top no-repeat, 
+	background:
+	   url(../img/section-shadow-top.png) center top no-repeat,
 	   url(../img/section-shadow-bottom.png) center bottom no-repeat;
 	background-size: 90% auto;
 }
@@ -647,7 +651,7 @@ pre {
 }
 
 pre li {
-	
+
 }
 
 b {
@@ -684,7 +688,7 @@ b {
 }
 
 #itemList .panel pre {
-	margin-left:30px;	
+	margin-left:30px;
 }
 
 
@@ -787,5 +791,14 @@ border-bottom-color: #fff;
 }
 
 .accordion-heading a:hover {
-	color: #0083c5;	
+	color: #0083c5;
+}
+
+dartdoc-category,
+dartdoc-item,
+dartdoc-method,
+method-panel,
+dartdoc-page,
+dartdoc-variable {
+  display: block;
 }
